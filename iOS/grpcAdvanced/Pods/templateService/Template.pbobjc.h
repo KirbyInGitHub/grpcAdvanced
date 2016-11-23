@@ -26,23 +26,23 @@ CF_EXTERN_C_BEGIN
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark - Enum EnumType_Color
+#pragma mark - Enum Color
 
-typedef GPB_ENUM(EnumType_Color) {
+typedef GPB_ENUM(Color) {
   /// Value used if any message's field encounters a value that is not defined
   /// by this enum. The message will also have C functions to get/set the rawValue
   /// of the field.
-  EnumType_Color_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
-  EnumType_Color_White = 0,
-  EnumType_Color_Red = 1,
-  EnumType_Color_Green = 2,
+  Color_GPBUnrecognizedEnumeratorValue = kGPBUnrecognizedEnumeratorValue,
+  Color_White = 0,
+  Color_Red = 1,
+  Color_Green = 2,
 };
 
-GPBEnumDescriptor *EnumType_Color_EnumDescriptor(void);
+GPBEnumDescriptor *Color_EnumDescriptor(void);
 
 /// Checks to see if the given value is defined by the enum or was not known at
 /// the time this source was generated.
-BOOL EnumType_Color_IsValidValue(int32_t value);
+BOOL Color_IsValidValue(int32_t value);
 
 #pragma mark - TemplateRoot
 
@@ -86,7 +86,7 @@ typedef GPB_ENUM(EnumType_FieldNumber) {
 
 @interface EnumType : GPBMessage
 
-@property(nonatomic, readwrite) EnumType_Color color;
+@property(nonatomic, readwrite) Color color;
 
 @end
 
@@ -107,7 +107,7 @@ typedef GPB_ENUM(OtherType_FieldNumber) {
 
 @interface OtherType : GPBMessage
 
-@property(nonatomic, readwrite) EnumType_Color color;
+@property(nonatomic, readwrite) Color color;
 
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSString*> *arrayArray;
 /// The number of items in @c arrayArray without causing the array to be created.

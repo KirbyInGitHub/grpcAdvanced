@@ -39,6 +39,44 @@ static GPBFileDescriptor *TemplateRoot_FileDescriptor(void) {
   return descriptor;
 }
 
+#pragma mark - Enum Color
+
+GPBEnumDescriptor *Color_EnumDescriptor(void) {
+  static GPBEnumDescriptor *descriptor = NULL;
+  if (!descriptor) {
+    static const char *valueNames =
+        "White\000Red\000Green\000";
+    static const int32_t values[] = {
+        Color_White,
+        Color_Red,
+        Color_Green,
+    };
+    static const char *extraTextFormatInfo = "\003\000%\000\001#\000\002%\000";
+    GPBEnumDescriptor *worker =
+        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(Color)
+                                       valueNames:valueNames
+                                           values:values
+                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
+                                     enumVerifier:Color_IsValidValue
+                              extraTextFormatInfo:extraTextFormatInfo];
+    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
+      [worker release];
+    }
+  }
+  return descriptor;
+}
+
+BOOL Color_IsValidValue(int32_t value__) {
+  switch (value__) {
+    case Color_White:
+    case Color_Red:
+    case Color_Green:
+      return YES;
+    default:
+      return NO;
+  }
+}
+
 #pragma mark - BasicDataTypes
 
 @implementation BasicDataTypes
@@ -127,7 +165,7 @@ typedef struct BasicDataTypes__storage_ {
 
 typedef struct EnumType__storage_ {
   uint32_t _has_storage_[1];
-  EnumType_Color color;
+  Color color;
 } EnumType__storage_;
 
 // This method is threadsafe because it is initially called
@@ -138,7 +176,7 @@ typedef struct EnumType__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "color",
-        .dataTypeSpecific.enumDescFunc = EnumType_Color_EnumDescriptor,
+        .dataTypeSpecific.enumDescFunc = Color_EnumDescriptor,
         .number = EnumType_FieldNumber_Color,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(EnumType__storage_, color),
@@ -174,44 +212,6 @@ void SetEnumType_Color_RawValue(EnumType *message, int32_t value) {
   GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
 }
 
-#pragma mark - Enum EnumType_Color
-
-GPBEnumDescriptor *EnumType_Color_EnumDescriptor(void) {
-  static GPBEnumDescriptor *descriptor = NULL;
-  if (!descriptor) {
-    static const char *valueNames =
-        "White\000Red\000Green\000";
-    static const int32_t values[] = {
-        EnumType_Color_White,
-        EnumType_Color_Red,
-        EnumType_Color_Green,
-    };
-    static const char *extraTextFormatInfo = "\003\000%\000\001#\000\002%\000";
-    GPBEnumDescriptor *worker =
-        [GPBEnumDescriptor allocDescriptorForName:GPBNSStringifySymbol(EnumType_Color)
-                                       valueNames:valueNames
-                                           values:values
-                                            count:(uint32_t)(sizeof(values) / sizeof(int32_t))
-                                     enumVerifier:EnumType_Color_IsValidValue
-                              extraTextFormatInfo:extraTextFormatInfo];
-    if (!OSAtomicCompareAndSwapPtrBarrier(nil, worker, (void * volatile *)&descriptor)) {
-      [worker release];
-    }
-  }
-  return descriptor;
-}
-
-BOOL EnumType_Color_IsValidValue(int32_t value__) {
-  switch (value__) {
-    case EnumType_Color_White:
-    case EnumType_Color_Red:
-    case EnumType_Color_Green:
-      return YES;
-    default:
-      return NO;
-  }
-}
-
 #pragma mark - OtherType
 
 @implementation OtherType
@@ -221,7 +221,7 @@ BOOL EnumType_Color_IsValidValue(int32_t value__) {
 
 typedef struct OtherType__storage_ {
   uint32_t _has_storage_[1];
-  EnumType_Color color;
+  Color color;
   NSMutableArray *arrayArray;
 } OtherType__storage_;
 
@@ -233,7 +233,7 @@ typedef struct OtherType__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "color",
-        .dataTypeSpecific.enumDescFunc = EnumType_Color_EnumDescriptor,
+        .dataTypeSpecific.enumDescFunc = Color_EnumDescriptor,
         .number = OtherType_FieldNumber_Color,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(OtherType__storage_, color),

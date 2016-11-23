@@ -9,17 +9,18 @@ message BasicDataTypes {
     string stringType = 4;
 }
 
-message EnumType {
-    enum Color {
+enum Color {
         white = 0;
         red = 1;
         green = 2;
-    }
+}
+
+message EnumType {
     Color color = 1;
 }
 
 message OtherType {
-    EnumType.Color color = 1;
+    Color color = 1;
     repeated string array = 2;
 }
 

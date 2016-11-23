@@ -30,12 +30,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         b.doubleType = 3.4
         b.stringType = "fds"
         
+        let o = OtherType()
+        o.arrayArray = ["1"]
+        
         c.basicDataTypesRequest(withRequest: b) { (reply, err) in
             
             print(reply?.description, err)
         }
         
-        
+        c.otherTypeRequest(withRequest: o) { (reply, err) in
+            
+            let arr = reply?.arrayArray
+            
+            print(arr)
+        }
         
         return true
     }
