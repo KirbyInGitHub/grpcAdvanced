@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         b.stringType = "fds"
         
         let o = OtherType()
-        o.arrayArray = ["1"]
+    
         
         c.basicDataTypesRequest(withRequest: b) { (reply, err) in
             

@@ -22,7 +22,7 @@ func (ts *TemplateServer) BasicDataTypesRequest(ctx context.Context, in *tp.Basi
 func (ts *TemplateServer) EnumTypeRequest(ctx context.Context, in *tp.EnumType) (*tp.EnumType, error) {
 
 	reply := tp.EnumType{}
-	reply.Color = tp.EnumType_green
+	reply.Color = tp.Color_red
 
 	return &reply, nil
 }
@@ -30,7 +30,7 @@ func (ts *TemplateServer) EnumTypeRequest(ctx context.Context, in *tp.EnumType) 
 func (ts *TemplateServer) OtherTypeRequest(ctx context.Context, in *tp.OtherType) (*tp.OtherType, error) {
 
 	reply := tp.OtherType{}
-	reply.Color = tp.EnumType_white
+	reply.Color = tp.Color_red
 	reply.Array = []string{"2", "45", "65"}
 
 	return &reply, nil

@@ -26,14 +26,14 @@ PODS:
     - Protobuf (~> 3.0)
   - gRPC-RxLibrary (1.0.0)
   - Protobuf (3.1.0)
-  - templateService (0.0.2):
+  - templateService (0.0.3):
     - '!ProtoCompiler-gRPCPlugin (~> 1.0)'
-    - templateService/Messages (= 0.0.2)
-    - templateService/Services (= 0.0.2)
-  - templateService/Messages (0.0.2):
+    - templateService/Messages (= 0.0.3)
+    - templateService/Services (= 0.0.3)
+  - templateService/Messages (0.0.3):
     - '!ProtoCompiler-gRPCPlugin (~> 1.0)'
     - Protobuf
-  - templateService/Services (0.0.2):
+  - templateService/Services (0.0.3):
     - '!ProtoCompiler-gRPCPlugin (~> 1.0)'
     - gRPC-ProtoRPC
     - templateService/Messages
@@ -54,7 +54,7 @@ SPEC CHECKSUMS:
   gRPC-ProtoRPC: 51745b5ebe4a844dc6e1ecf767d74ae3d124ea1e
   gRPC-RxLibrary: 3a8c5543115fb2183ed5624678e7ecbac5e9e4ad
   Protobuf: 265e9977d04a83eba9cefb0bed3ad07e41033b4a
-  templateService: 510a6e9fccf2c4d30105bcef3c8c2883a639b351
+  templateService: 9ace2aa220e06004c3f437430f215a0e3dc9469e
 
 PODFILE CHECKSUM: 8ad7e52a02920fc9e7a8d0ab6ea7dceead09a2dc
 
