@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package template;
+
+message BasicDataTypes {
+    int32 int32Type = 1; 
+    double doubleType = 2;
+    bool boolType = 3;
+    string stringType = 4;
+}
+
+message EnumType {
+    enum Color {
+        white = 0;
+        red = 1;
+        green = 2;
+    }
+    Color color = 1;
+}
+
+message OtherType {
+    EnumType.Color color = 1;
+    repeated string array = 2;
+}
+
+service TemplateService {
+    rpc BasicDataTypesRequest (BasicDataTypes) returns (BasicDataTypes);
+    rpc EnumTypeRequest (EnumType) returns (EnumType);
+    rpc OtherTypeRequest (OtherType) returns (OtherType);
+}

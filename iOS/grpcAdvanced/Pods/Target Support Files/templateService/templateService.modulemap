@@ -1,0 +1,6 @@
+framework module templateService {
+  umbrella header "templateService-umbrella.h"
+
+  export *
+  module * { export * }
+}
